@@ -3,10 +3,23 @@ const BRANCH = 'master';
 function raw(path){ return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}`; }
 function api(path){ return `https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}`; }
 
-async function fetchDir(lesson){
-  const res = await fetch(api(`lesson-${lesson}`));
+async function fetchDirRecursively(path){
+  const res = await fetch(api(path));
   if(!res.ok) throw new Error('Dir not found');
-  return res.json();
+  const items = await res.json();
+  let files = [];
+  for(const item of items){
+    if(item.type === 'file'){
+      files.push(item);
+    }else if(item.type === 'dir'){
+      const sub = await fetchDirRecursively(item.path);
+      files = files.concat(sub);
+    }
+  }
+  return files;
+}
+async function fetchDir(lesson){
+  return fetchDirRecursively(`lesson-${lesson}`);
 }
 
 async function fetchRootLessons(){
@@ -30,6 +43,21 @@ function renderImages(files){
   return `<section><h2>Изображения</h2><div class="grid">${html}</div></section>`;
 }
 
+function bindLightbox(){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('#content img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      lightboxImg.src = img.src;
+      lightbox.classList.remove('hidden');
+    });
+  });
+  lightbox.addEventListener('click', ()=>{
+    lightbox.classList.add('hidden');
+    lightboxImg.src = '';
+  });
+}
+
 async function loadLesson(lesson){
   const files = await fetchDir(lesson);
   let html = '';
@@ -49,6 +77,7 @@ async function loadLesson(lesson){
   }
   html += renderImages(files);
   document.getElementById('content').innerHTML = html;
+  bindLightbox();
 }
 
 function getLessonFromHash(){

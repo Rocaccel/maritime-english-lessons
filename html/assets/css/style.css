@@ -18,8 +18,11 @@ h2{margin-top:1.5rem}
 table{width:100%;border-collapse:collapse;margin:1rem 0}
 th,td{border:1px solid #1f2f4a;padding:0.6rem;text-align:left}
 th{background:#0f172a}
-img{max-width:100%;height:auto;border-radius:8px}
+img{max-width:100%;height:auto;border-radius:8px;cursor:zoom-in}
 footer{padding:2rem 1rem;color:var(--muted);text-align:center}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:1000}
+.lightbox img{max-width:95vw;max-height:95vh;border-radius:0}
+.lightbox.hidden{display:none}
 @media(max-width:768px){
   header h1{font-size:1.2rem}
   .grid{grid-template-columns:1fr}
