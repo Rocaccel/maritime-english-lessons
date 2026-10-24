@@ -9,6 +9,13 @@ async function fetchDir(lesson){
   return res.json();
 }
 
+async function fetchRootLessons(){
+  const res = await fetch(api(''));
+  if(!res.ok) return [];
+  const items = await res.json();
+  return items.filter(i=> i.type==='dir' && /^lesson-\d+$/i.test(i.name)).map(i=> i.name.match(/lesson-(\d+)/i)[1]);
+}
+
 async function loadMarkdown(path){
   const res = await fetch(raw(path));
   if(!res.ok) return null;
@@ -26,13 +33,11 @@ function renderImages(files){
 async function loadLesson(lesson){
   const files = await fetchDir(lesson);
   let html = '';
-  // Main text
   const main = files.find(f=> f.name === `lesson-${lesson}-text.md`);
   if(main){
     const content = await loadMarkdown(main.path);
     html += `<section><h2>Основной текст</h2><article class="card">${content}</article></section>`;
   }
-  // Work texts
   const parts = files.filter(f=> f.name.startsWith(`lesson-${lesson}_part-`) && f.name.endsWith('.md'));
   if(parts.length){
     html += `<section><h2>Work Text</h2>`;
@@ -42,27 +47,41 @@ async function loadLesson(lesson){
     }
     html += `</section>`;
   }
-  // Images
   html += renderImages(files);
   document.getElementById('content').innerHTML = html;
 }
 
 function getLessonFromHash(){
   const m = location.hash.match(/lesson-(\d+)/);
-  return m ? m[1] : '1';
+  return m ? m[1] : null;
+}
+
+async function populateNav(){
+  try{
+    const lessons = await fetchRootLessons();
+    const nav = document.querySelector('nav');
+    nav.innerHTML = lessons.map(l=> `<a href="#lesson-${l}">Lesson ${l}</a>`).join('');
+    if(!getLessonFromHash() && lessons.length){
+      location.hash = `#lesson-${lessons[0]}`;
+    }
+  }catch(e){}
 }
 
 window.addEventListener('DOMContentLoaded', async ()=>{
+  await populateNav();
   const lesson = getLessonFromHash();
-  try{
-    await loadLesson(lesson);
-    document.getElementById('title').textContent = `Lesson ${lesson}`;
-  }catch(e){
-    document.getElementById('content').innerHTML = '<p>Урок не найден</p>';
+  if(lesson){
+    try{
+      await loadLesson(lesson);
+      document.getElementById('title').textContent = `Lesson ${lesson}`;
+    }catch(e){
+      document.getElementById('content').innerHTML = '<p>Урок не найден</p>';
+    }
   }
 });
 window.addEventListener('hashchange', async ()=>{
   const lesson = getLessonFromHash();
+  if(!lesson) return;
   try{
     await loadLesson(lesson);
     document.getElementById('title').textContent = `Lesson ${lesson}`;
