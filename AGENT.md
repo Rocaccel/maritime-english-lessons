@@ -12,21 +12,21 @@ C:\Users\ser\Desktop\GitHub\maritime-english-lessons-new
 lesson-1/             # source .md + images (*.png)
 lesson-2/
 lesson-3/
-html/
+docs/
   index.html          # index with cards (no PART 1 / MD tags)
   lessons/
     lesson-1.html     # built page
 ```
 
 ## How to create a new lesson page (e.g. lesson-2.html)
-1. Copy `html/lessons/lesson-1.html` → `html/lessons/lesson-2.html`
+1. Copy `docs/lessons/lesson-1.html` → `docs/lessons/lesson-2.html`
 2. Update `<title>` and headings.
 3. Fix image paths: from `../../lesson-1/` to `../../lesson-2/` (in `src`, `background:url`, and hero `background`).
 4. Keep lightbox script (already embedded) and back-link `<a href="../index.html">`.
 5. Keep design: no `PART 1 / PART 2 / HTML / MD` meta tags.
 6. Commit.
 
-## How to add/update index card (`html/index.html`)
+## How to add/update index card (`docs/index.html`)
 - Card structure: `<a class="card" href="lessons/lesson-X.html">` (or `.md` for non-HTML).
 - No `.meta` tags inside cards.
 - Link back to index inside lesson page: `<a href="../index.html">← Оглавление уроков</a>` in `.hero-inner`.
