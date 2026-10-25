@@ -2,24 +2,63 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maritime English Lessons</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maritime English — Уроки</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+:root{--sea:#0b2a3a;--ocean:#156b8a;--gold:#cfa03a;--sand:#f6f2e6;--ink:#1b2b36;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:linear-gradient(180deg,#062033 0%,#0b2a3a 60%,#f6f2e6 60%,#f6f2e6 100%);color:var(--ink);min-height:100vh;}
+header{position:relative;background:linear-gradient(160deg,#062033 0%,#0b2a3a 50%,#156b8a 100%);text-align:center;padding:4rem 1.5rem 5rem;overflow:hidden;}
+header::before{content:"";position:absolute;inset:0;background:url('../lesson-1/Строении корпуса судна.png') center/cover no-repeat;opacity:.16;mix-blend-mode:overlay;}
+header h1{position:relative;z-index:2;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.2rem,5vw,3.8rem);color:#fff;text-shadow:0 4px 25px rgba(0,0,0,.45);letter-spacing:-.02em;line-height:1.1;margin-bottom:.6rem;}
+header p{position:relative;z-index:2;color:rgba(255,255,255,.85);font-size:1.1rem;}
+main{max-width:1000px;margin:-2.5rem auto 5rem;padding:0 1.5rem;display:grid;gap:1.8rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:#fff;border-radius:20px;padding:2.2rem 2rem;box-shadow:0 10px 40px rgba(6,32,51,.1);border:1px solid rgba(11,42,58,.06);position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .15s ease, box-shadow .15s ease;}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 50px rgba(6,32,51,.14);}
+.card::before{content:"";position:absolute;top:0;left:0;height:6px;width:100%;background:linear-gradient(90deg,var(--gold),var(--ocean),var(--sea));border-radius:20px 20px 0 0;}
+.card .num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--sea);line-height:1;opacity:.9;margin-bottom:.4rem;}
+.card h2{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;color:var(--sea);margin-bottom:.5rem;}
+.card .subtitle{font-size:.88rem;color:#889aaa;margin-bottom:1rem;}
+.card .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
+.card .meta span{background:#f0f6fa;padding:.25rem .6rem;border-radius:999px;font-size:.75rem;color:var(--ocean);font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+.card .arrow{position:absolute;bottom:1.2rem;right:1.5rem;color:var(--gold);font-size:1.4rem;font-weight:700;opacity:.7;transition:opacity .15s ease;}
+.card:hover .arrow{opacity:1;}
+footer{text-align:center;padding:2.5rem 1rem;color:#889aaa;font-size:.8rem;background:#fff;border-top:1px solid #e8eef2;}
+</style>
 </head>
 <body>
+
 <header>
-  <h1>Maritime English Lessons</h1>
-  <nav></nav>
+  <h1>Maritime English</h1>
+  <p>Морской английский для судоводителей · Выберите урок</p>
 </header>
+
 <main>
-  <section class="card">
-    <h2 id="title">Lesson</h2>
-    <div id="content">Загрузка...</div>
-  </section>
+
+  <a class="card" href="lessons/lesson-1.html">
+    <div class="num">01</div>
+    <h2>Main Parts of a Vessel</h2>
+    <p class="subtitle">Ship's Hull · Корпус судна · Грамматика Passive Voice</p>
+
+    <div class="arrow">→</div>
+  </a>
+
+  <a class="card" href="lessons/lesson-2.html">
+    <div class="num">02</div>
+    <h2>Ship's Hull — Temp Lesson</h2>
+    <p class="subtitle">Основные части судна · Устройство корпуса</p>
+
+    <div class="arrow">→</div>
+  </a>
+
+
+
 </main>
-<footer>© Maritime English Lessons</footer>
-<div id="lightbox" class="lightbox hidden"><img id="lightbox-img" alt=""></div>
-<script src="assets/js/app.js"></script>
+
+<footer>
+  <p>Maritime English Visualizer · Оглавление уроков</p>
+</footer>
+
 </body>
 </html>
