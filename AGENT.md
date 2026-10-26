@@ -9,9 +9,9 @@ C:\Users\ser\Desktop\GitHub\maritime-english-lessons-new
 
 ## Folder structure
 ```
-lesson-1/             # source .md + images (*.png)
-lesson-2/
-lesson-3/
+Unit-1/             # source .md + images (*.png)
+Unit-2/
+Unit-3/
 docs/
   index.html          # index with cards (no PART 1 / MD tags)
   lessons/
