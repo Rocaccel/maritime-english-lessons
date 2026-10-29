@@ -1,0 +1,8 @@
+<head>
+  <!-- Import element definition and auto-register -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+</head>
+<body>
+  <!-- Profit! -->
+  <zero-md src="example.md"></zero-md>
+</body>    
