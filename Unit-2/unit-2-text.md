@@ -1,4 +1,4 @@
-# **Types of Ships**
+# Unit-2. **Types of Ships**
 
 All ships are divided into two broad categories: men-of-war and merchant ships.
 
