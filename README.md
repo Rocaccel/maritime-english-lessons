@@ -10,23 +10,20 @@
 
 ```
 maritime-english-lessons/
-├─ README.md            # этот файл
-├─ AGENTS.md            # инструкции для агента
-├─ mkdocs.yml           # конфиг MkDocs
-├─ deploy.cmd           # деплой сайта одним кликом (mkdocs gh-deploy)
-├─ .gitignore           # игнорирует site/
-├─ overrides/           # правки темы MkDocs
-├─ docs/                # источник сайта, здесь правим уроки
-│  ├─ README.md         # главная страница сайта
-│  ├─ Unit-#/
-│  │  ├─ unit-#-text.md
-│  │  ├─ unit-#_part-1_main_parts_of_a_vessel_ships_hull.md
-│  │  ├─ unit-1_part-2_ship_equipment_and_cargo_operations.md
-│  │  ├─ image#.md      # страница с иллюстрацией
-│  │  └─ unit-#.png		# иллюстрация
-│  └─ Unit-2/
-│     └─ unit-2-text.md
-├─ Unit-#/              # Содержимое урока, тексты, иллюстрации
+├─ README.md           				# этот файл
+├─ AGENT.md           				# инструкции для агента
+├─ mkdocs.yml        				# конфиг MkDocs
+├─ deploy.cmd         				# деплой сайта одним кликом (mkdocs gh-deploy)
+├─ .gitignore         				# игнорирует site/
+├─ overrides/         				# правки темы MkDocs
+├─ docs/               				# источник сайта, здесь правим уроки
+│  ├─ README.md       				# главная страница сайта
+│  └─ Unit-#/						# папка с уроком
+│     ├─ unit-#-text.md				# основной текст урока
+│     ├─ unit-#_{name-of-unit}.md	# объяснения и матерьялы для урока
+│     ├─ image#.md    				# страница с иллюстрацией
+│     └─ unit-#.png					# иллюстрация
+├─ Unit-#/            				# Содержимое урока, тексты, иллюстрации
 ```
 
 ## Подготовка к экзаменам
