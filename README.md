@@ -11,7 +11,7 @@
 ```
 maritime-english-lessons/
 ├─ README.md           				# этот файл
-├─ AGENT.md           				# инструкции для агента
+├─ AGENTS.md           				# инструкции для агента
 ├─ mkdocs.yml        				# конфиг MkDocs
 ├─ deploy.cmd         				# деплой сайта одним кликом (mkdocs gh-deploy)
 ├─ .gitignore         				# игнорирует site/
@@ -23,7 +23,7 @@ maritime-english-lessons/
 │     ├─ unit-#_{name-of-unit}.md	# объяснения и матерьялы для урока
 │     ├─ image#.md    				# страница с иллюстрацией
 │     └─ unit-#.png					# иллюстрация
-├─ Unit-#/            				# Содержимое урока, тексты, иллюстрации
+└─ Unit-#/            				# копия из docs/ для удобства, в сборке не участвует
 ```
 
 ## Подготовка к экзаменам
