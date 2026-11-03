@@ -23,9 +23,10 @@ plugins:
 nav:
   - Home: README.md
   - Unit 1 - Main Parts of a Vessel. Ship's Hull:
-      - Work text: Unit-1/unit-1-text.md
+      - Unit-1 work text: Unit-1/unit-1-text.md
       - Main Parts of a Vessel. Ship's Hull: Unit-1/unit-1_part-1_main_parts_of_a_vessel_ships_hull.md
       - Figure - Main Parts of a Vessel. Ship's Hull: Unit-1/image1.md
       - Ship Equipment and Cargo Operations: Unit-1/unit-1_part-2_ship_equipment_and_cargo_operations.md
+      - Figure - Ship Equipment and Cargo Operations: Unit-1/image2.md
   - Unit 2 - Types of Ships:
-      - Work text: Unit-2/unit-2-text.md
+      - Unit-2 work text: Unit-2/unit-2-text.md
